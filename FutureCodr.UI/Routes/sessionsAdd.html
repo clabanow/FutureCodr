@@ -1,0 +1,46 @@
+﻿
+<div class="admin-page" ng-controller="SessionsAddCtrl">
+    <div class="admin-div">
+        <div class="admin-header-div">
+            <span class="admin-header">Add Session - {{ session.BootcampName }}</span>
+        </div>
+
+        <form class="angular-form" name="form">
+
+            <div class="form-group">
+                <span class="form-label-ang">Location</span>
+                <select class="default-dropdown ang-control" ng-model="selectedLocationId" ng-options="location.LocationId as location.Name for location in locations" required></select>
+            </div>
+
+            <div class="form-group">
+                <span class="form-label-ang">Technology</span>
+                <select class="default-dropdown ang-control" ng-model="selectedTechnologyId" ng-options="technology.TechnologyId as technology.Name for technology in technologies" required></select>
+            </div>
+
+            <div class="form-group">
+                <span class="form-label-ang">Start Date</span>
+                <input class="form-input-ang datepicker" name="StartDate" ng-model="session.StartDate" required/>
+                <span ng-show="form.StartDate.$dirty && form.StartDate.$invalid">
+                    <span ng-show="form.StartDate.$error.required" class="ng-error-msg">Enter a start date</span>
+                </span>
+            </div>
+
+            <div class="form-group">
+                <span class="form-label-ang">End Date</span>
+                <input class="form-input-ang datepicker" name="EndDate" ng-model="session.EndDate" required />
+                <span ng-show="form.EndDate.$dirty && form.EndDate.$invalid">
+                    <span ng-show="form.EndDate.$error.required" class="ng-error-msg">Enter an end date</span>
+                </span>
+            </div>
+
+            <a href="#/" class="btn slim-btn cancel-btn" style="text-decoration: none; color: whitesmoke">Cancel</a>
+            <button class="btn slim-btn" ng-click="add()" ng-disabled="form.$invalid">Add</button>
+        </form>
+    </div>
+</div>
+
+<!--<script>
+    $(function () {
+        $(".datepicker").datepicker();
+    });
+</script>-->

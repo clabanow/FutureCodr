@@ -1,0 +1,97 @@
+﻿@model List<FutureCodr.Models.Bootcamp>
+
+@{
+    ViewBag.Title = "Links";
+}
+
+<div class="admin-page" ng-app="links" ng-controller="LinksCtrl">
+    <div class="admin-div">
+        <div class="admin-header-div">
+            <span class="admin-header">Links</span>
+            <button class="btn slim-btn admin-header-btn" ng-click="showAddLink()">Add Link</button>
+        </div>
+
+        <table class="table admin-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Bootcamp Name</th>
+                    <th>Site Name</th>
+                    <th>Link Title</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="link in links">
+                    <td>{{ link.LinkID }}</td>
+                    <td>{{ link.BootcampName }}</td>
+                    <td>{{ link.LinkSiteName }}</td>
+                    <td>{{ link.LinkText }}</td>
+                    <td>{{ link.Date }}</td>
+                    <td><i class="glyphicon glyphicon-trash" ng-click="showAreYouSure(link.LinkID)"></i></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="admin-div" ng-show="areYouSure">
+        <p>Are you sure you want to delete Link #{{ id }}?</p>
+        <button class="btn slim-btn cancel-btn" ng-click="hide()">Cancel</button>
+        <button class="btn slim-btn" ng-click="delete(id)">Delete</button>
+    </div>
+    
+    <div class="admin-div" ng-show="addLink">
+        <div class="admin-header-div">
+            <span class="admin-header">Add a link</span>
+        </div>
+        <form name="form" class="angular-form" novalidate>
+            <div class="form-group">
+                <span class="form-label-ang">Bootcamp</span>
+                <select ng-model="selectedBootcamp" class="default-dropdown ang-control" ng-options="bootcamp.BootcampID as bootcamp.Name for bootcamp in bootcamps" required>
+                </select>
+            </div>
+            <div class="form-group">
+                <span class="form-label-ang">URL</span>
+                <input class="form-input-ang" name="URL" ng-model="link.URL" required/>
+                <span ng-show="form.URL.$dirty && form.URL.$invalid">
+                    <span ng-show="form.URL.$error.required" class="ng-error-msg">Enter the URL</span>
+                </span>
+            </div>
+            <div class="form-group">
+                <span class="form-label-ang">Site</span>
+                <select ng-model="selectedSiteId" class="default-dropdown ang-control" ng-options="site.SiteId as site.SiteName for site in sites" required></select>
+            </div>
+            <div class="form-group">
+                <span class="form-label-ang">Link Title</span>
+                <input class="form-input-ang" name="LinkText" ng-model="link.LinkText" required/>
+                <span ng-show="form.LinkText.$dirty && form.LinkText.$invalid">
+                    <span ng-show="form.LinkText.$error.required" class="ng-error-msg">Enter the article title</span>
+                </span>
+            </div>
+            <div class="form-group">
+                <span class="form-label-ang">Date</span>
+                <input class="form-input-ang" name="Date" ng-model="link.Date" required/>
+                <span ng-show="form.Date.$dirty && form.Date.$invalid">
+                    <span ng-show="form.Date.$error.required" class="ng-error-msg">Enter the publication date</span>
+                </span>
+            </div>
+            
+            <button class="btn slim-btn cancel-btn" ng-click="hide()">Cancel</button>
+            <button class="btn slim-btn" ng-click="add()" ng-disabled="form.$invalid">Add Link</button>
+        </form>
+    </div>
+</div>
+
+@section AdminMenu
+{
+    @Html.Partial("_AdminFloater")
+}
+
+@section scripts{
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/angular-route.min.js"></script>
+    <script src="~/Scripts/angular/links/linksModule.js"></script>
+    <script src="~/Scripts/angular/links/linksFactory.js"></script>
+    <script src="~/Scripts/angular/links/LinksCtrl.js"></script>
+}

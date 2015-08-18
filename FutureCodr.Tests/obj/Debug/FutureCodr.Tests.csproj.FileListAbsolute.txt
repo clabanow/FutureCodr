@@ -1,0 +1,14 @@
+C:\Users\Charles\Desktop\Github\Charles\Applications\FutureCodr_FINAL\FutureCodr\FutureCodr.Tests\obj\Debug\FutureCodr.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Charles\Desktop\Github\Charles\FutureCodr\FutureCodr.Tests\bin\Debug\FutureCodr.Tests.dll.config
+C:\Users\Charles\Desktop\Github\Charles\FutureCodr\FutureCodr.Tests\bin\Debug\FutureCodr.Tests.dll
+C:\Users\Charles\Desktop\Github\Charles\FutureCodr\FutureCodr.Tests\bin\Debug\FutureCodr.Tests.pdb
+C:\Users\Charles\Desktop\Github\Charles\FutureCodr\FutureCodr.Tests\bin\Debug\FutureCodr.Data.dll
+C:\Users\Charles\Desktop\Github\Charles\FutureCodr\FutureCodr.Tests\bin\Debug\FutureCodr.Models.dll
+C:\Users\Charles\Desktop\Github\Charles\FutureCodr\FutureCodr.Tests\bin\Debug\nunit.framework.dll
+C:\Users\Charles\Desktop\Github\Charles\FutureCodr\FutureCodr.Tests\bin\Debug\Dapper.dll
+C:\Users\Charles\Desktop\Github\Charles\FutureCodr\FutureCodr.Tests\bin\Debug\FutureCodr.Data.pdb
+C:\Users\Charles\Desktop\Github\Charles\FutureCodr\FutureCodr.Tests\bin\Debug\FutureCodr.Models.pdb
+C:\Users\Charles\Desktop\Github\Charles\FutureCodr\FutureCodr.Tests\bin\Debug\nunit.framework.xml
+C:\Users\Charles\Desktop\Github\Charles\FutureCodr\FutureCodr.Tests\obj\Debug\FutureCodr.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Charles\Desktop\Github\Charles\FutureCodr\FutureCodr.Tests\obj\Debug\FutureCodr.Tests.dll
+C:\Users\Charles\Desktop\Github\Charles\FutureCodr\FutureCodr.Tests\obj\Debug\FutureCodr.Tests.pdb

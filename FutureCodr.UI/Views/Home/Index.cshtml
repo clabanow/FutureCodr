@@ -1,0 +1,62 @@
+﻿@using System.Web.UI.WebControls
+@model FutureCodr.UI.Models.Home.HomeIndexViewModel
+           
+@{
+    ViewBag.Title = "FutureCodr";
+    ViewBag.metaDescription = "Find and compare programming bootcamps from across the world. Search by a number of factors such as technology, location, and price. Discover the coding bootcamp that is right for you!";
+}
+
+<div class="jumbotron-background">
+    <div class="jumbotron">
+        <span>Find and compare programming bootcamps</span>
+        <div class="search-bar">
+            @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+            {
+                @Html.DropDownListFor(m => m.SearchParams.SelectedTechnologyId, Model.SearchParams.Technologies, "Select a technology", new { @class = "default-dropdown" });
+                @Html.DropDownListFor(m => m.SearchParams.SelectedLocationId, Model.SearchParams.Locations, "Select a location", new { @class = "default-dropdown" });
+                @Html.DropDownListFor(m => m.SearchParams.SelectedPriceRange, Model.SearchParams.Prices, "Select a price range", new { @class = "default-dropdown" });
+
+                <button type="submit" class="btn slim-btn" id="search-btn"><i class="fa fa-search icon"></i>Search</button>
+            }
+        </div>
+    </div>
+
+
+</div>
+
+<div class="thumbnail-area">
+    @foreach (var bootcamp in Model.Bootcamps)
+    {
+        if (bootcamp.Name == "Iron Hack")
+        {
+            <span class="thumbnail-item">
+            <a class="bootcamp-box-link" href="/bootcamp/@bootcamp.GetUrlName()">
+                <img class="thumbnail-image" src="/Content/logos/@bootcamp.LogoLinkUrl" style="background-color: brown"/>
+                <div class="thumbnail-info">
+                    <div class="thumbnail-bootcamp-name">@bootcamp.Name</div>
+                    <div class="thumbnail-bootcamp-location"><i class="fa fa-map-marker icon"></i>@bootcamp.Location</div>
+                </div>
+            </a>
+        </span>
+        }
+        else
+        {
+            <span class="thumbnail-item">
+                <a class="bootcamp-box-link" href="/bootcamp/@bootcamp.GetUrlName()">
+                    <img class="thumbnail-image" src="/Content/logos/@bootcamp.LogoLinkUrl" />
+                    <div class="thumbnail-info">
+                        <div class="thumbnail-bootcamp-name">@bootcamp.Name</div>
+                        <div class="thumbnail-bootcamp-location"><i class="fa fa-map-marker icon"></i>@bootcamp.Location</div>
+                    </div>
+                </a>
+            </span>
+        }
+        
+    }
+    @if (Model.Bootcamps.Count == 0)
+    {
+        <div id="no-bootcamps-found">
+            <span>Your search returned no results</span>
+        </div>
+    }
+</div>

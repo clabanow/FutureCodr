@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "Locations";
+}
+
+<div class="admin-page" ng-app="locations" ng-controller="LocationsCtrl">
+    <div class="admin-div">
+        <div class="admin-header-div">
+            <span class="admin-header">Locations</span>
+            <button class="btn slim-btn admin-header-btn" ng-click="showAddLocation()">Add Location</button>
+        </div>
+        
+        <table class="table admin-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>City</th>
+                    <th>Country</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="location in locations">
+                    <td>{{ location.LocationID }}</td>
+                    <td>{{ location.City }}</td>
+                    <td>{{ location.Country }}</td>
+                    <td><i class="glyphicon glyphicon-trash" ng-click="showConfirmDelete(location.LocationID, location.City, location.Country)"></i></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="admin-div" ng-show="addLocation">
+        <div class="admin-header-div">
+            <span class="admin-header">Add a location</span>
+        </div>
+
+        <form name="form" class="angular-form">
+            
+            <div class="form-group">
+                <span class="form-label-ang">City</span>
+                <input class="form-input-ang" type="text" name="City" ng-model="location.City" required/>
+                <span ng-show="form.City.$dirty && form.City.$invalid">
+                    <span ng-show="form.City.$error.required" class="ng-error-msg">Enter a city</span>
+                </span>
+            </div>
+
+            <div class="form-group">
+                <span class="form-label-ang">Country</span>
+                <input class="form-input-ang" type="text" name="Country" ng-model="location.Country" required/>
+                <span ng-show="form.Country.$dirty && form.Country.$invalid">
+                    <span ng-show="form.Country.$error.required" class="ng-error-msg">Enter a country</span>
+                </span>
+            </div>
+
+            <button class="btn slim-btn cancel-btn" ng-click="hideAddLocation()">Cancel</button>
+            <button class="btn slim-btn" ng-click="add()" ng-disabled="form.$invalid">Add</button>
+
+        </form>
+    </div>
+    
+    <div class="admin-div" ng-show="confirmDelete">
+        <p>Are you sure you want to delete the following: {{ city }}, {{ country }}?</p>
+        <button class="btn slim-btn cancel-btn" ng-click="hideConfirmDelete()">Cancel</button>
+        <button class="btn slim-btn" ng-click="delete(id)">Delete</button>
+    </div>
+</div>
+
+@section AdminMenu
+{
+    @Html.Partial("_AdminFloater")
+}
+
+@section scripts {
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/angular/locations/locationsModule.js"></script>
+    <script src="~/Scripts/angular/locations/locationsFactory.js"></script>
+    <script src="~/Scripts/angular/locations/LocationsCtrl.js"></script>
+}

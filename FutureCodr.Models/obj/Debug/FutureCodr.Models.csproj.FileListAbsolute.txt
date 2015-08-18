@@ -1,0 +1,9 @@
+C:\Users\Charles\Desktop\Github\Charles\Applications\FutureCodr_FINAL\FutureCodr\FutureCodr.Models\bin\Debug\FutureCodr.Models.dll
+C:\Users\Charles\Desktop\Github\Charles\Applications\FutureCodr_FINAL\FutureCodr\FutureCodr.Models\bin\Debug\FutureCodr.Models.pdb
+C:\Users\Charles\Desktop\Github\Charles\Applications\FutureCodr_FINAL\FutureCodr\FutureCodr.Models\obj\Debug\FutureCodr.Models.csprojResolveAssemblyReference.cache
+C:\Users\Charles\Desktop\Github\Charles\Applications\FutureCodr_FINAL\FutureCodr\FutureCodr.Models\obj\Debug\FutureCodr.Models.dll
+C:\Users\Charles\Desktop\Github\Charles\Applications\FutureCodr_FINAL\FutureCodr\FutureCodr.Models\obj\Debug\FutureCodr.Models.pdb
+C:\Users\Charles\Desktop\Github\Charles\FutureCodr\FutureCodr.Models\bin\Debug\FutureCodr.Models.dll
+C:\Users\Charles\Desktop\Github\Charles\FutureCodr\FutureCodr.Models\bin\Debug\FutureCodr.Models.pdb
+C:\Users\Charles\Desktop\Github\Charles\FutureCodr\FutureCodr.Models\obj\Debug\FutureCodr.Models.dll
+C:\Users\Charles\Desktop\Github\Charles\FutureCodr\FutureCodr.Models\obj\Debug\FutureCodr.Models.pdb

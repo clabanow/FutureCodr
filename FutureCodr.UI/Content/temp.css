@@ -1,0 +1,25 @@
+﻿.navbar-nav {
+        float: right;
+        vertical-align: middle;
+        font-family: 'Lato', sans-serif;
+        font-size: 20px;
+        padding-top: 20px;
+    }
+
+        .navbar-nav > li {
+            display: inline-block;
+            margin-left: 25px;
+            color: #999999 !important;
+        }
+
+.navbar {
+    background-color: whitesmoke;
+    color: #999;
+    height: 80px;
+    line-height: 80px;
+    border-bottom: 1px solid black;
+}
+
+#future-codr-logo {
+    height: 80px;
+}

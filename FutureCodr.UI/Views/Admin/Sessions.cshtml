@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Sessions";
+}
+
+<div ng-app="sessions">
+    <div ng-view></div>
+</div>
+
+@section AdminMenu
+{
+    @Html.Partial("_AdminFloater")
+}
+
+@section scripts
+{
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/angular-route.min.js"></script>
+    <script src="~/Scripts/angular/sessions/sessionsModule.js"></script>
+    <script src="~/Scripts/angular/sessions/sessionsFactory.js"></script>
+    <script src="~/Scripts/angular/sessions/SessionsListCtrl.js"></script>
+    <script src="~/Scripts/angular/sessions/SessionsAddCtrl.js"></script>
+}

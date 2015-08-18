@@ -1,0 +1,62 @@
+﻿@model FutureCodr.UI.Models.Home.HomeContactViewModel
+
+@{
+    ViewBag.Title = "FutureCodr | Contact";
+}
+
+<div id="contact-page-content">
+    <div id="contact-us">Contact Us</div>
+
+    <div id="map-container">
+        <div id="map_canvas"></div>
+    </div>
+
+
+    @using (Html.BeginForm("Contact", "Home", FormMethod.Post, new { name = "form", novalidate = "novalidate" }))
+    {
+        <div class="admin-div contact-form" style="margin-left: 0">
+            <div class="form-group">
+                <div class="form-label-ang contact-form-label">Name</div>
+                @Html.ValidationMessageFor(m => m.Name, string.Empty, new { @class = "ng-error-msg" })
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control contact-form-input", required = "required" })
+            </div>
+            <div class="form-group">
+                <div class="form-label-ang contact-form-label">Email</div>
+                @Html.ValidationMessageFor(m => m.Email, string.Empty, new { @class = "ng-error-msg" })
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control contact-form-input", required = "required" })
+            </div>
+            <div class="form-group">
+                <div class="form-label-ang contact-form-label">Message</div>
+                @Html.ValidationMessageFor(m => m.Message, string.Empty, new { @class = "ng-error-msg" })
+                @Html.TextAreaFor(m => m.Message, new { @class = "form-control contact-form-text-area", required = "required" })
+            </div>
+            <button type="submit" class="btn slim-btn" style="margin-left: 0;" ng-disabled="form.$invalid">Submit</button>
+        </div>
+    }
+</div>
+    
+@section scripts {
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script>
+        var utrecht = new google.maps.LatLng(52.090713, 5.118368);
+        var marker;
+
+        function initialize() {
+            var myOptions = {
+                zoom: 15,
+                center: utrecht,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var map = new google.maps.Map(document.getElementById("map_canvas"),
+                myOptions);
+
+            var marker = new google.maps.Marker({
+                position: utrecht,
+                map: map,
+                title: "Hello World!"
+            });
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+    <script src="~/Scripts/angular.min.js"></script>
+}

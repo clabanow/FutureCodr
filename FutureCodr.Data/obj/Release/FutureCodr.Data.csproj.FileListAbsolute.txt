@@ -1,0 +1,10 @@
+C:\Users\Charles\Desktop\Github\Charles\Applications\FutureCodr_FINAL\FutureCodr\FutureCodr.Data\bin\Release\FutureCodr.Data.dll
+C:\Users\Charles\Desktop\Github\Charles\Applications\FutureCodr_FINAL\FutureCodr\FutureCodr.Data\bin\Release\FutureCodr.Data.pdb
+C:\Users\Charles\Desktop\Github\Charles\Applications\FutureCodr_FINAL\FutureCodr\FutureCodr.Data\bin\Release\Dapper.dll
+C:\Users\Charles\Desktop\Github\Charles\Applications\FutureCodr_FINAL\FutureCodr\FutureCodr.Data\bin\Release\FutureCodr.Models.dll
+C:\Users\Charles\Desktop\Github\Charles\Applications\FutureCodr_FINAL\FutureCodr\FutureCodr.Data\bin\Release\FutureCodr.Models.pdb
+C:\Users\Charles\Desktop\Github\Charles\Applications\FutureCodr_FINAL\FutureCodr\FutureCodr.Data\bin\Release\Dapper.pdb
+C:\Users\Charles\Desktop\Github\Charles\Applications\FutureCodr_FINAL\FutureCodr\FutureCodr.Data\bin\Release\Dapper.xml
+C:\Users\Charles\Desktop\Github\Charles\Applications\FutureCodr_FINAL\FutureCodr\FutureCodr.Data\obj\Release\FutureCodr.Data.csprojResolveAssemblyReference.cache
+C:\Users\Charles\Desktop\Github\Charles\Applications\FutureCodr_FINAL\FutureCodr\FutureCodr.Data\obj\Release\FutureCodr.Data.dll
+C:\Users\Charles\Desktop\Github\Charles\Applications\FutureCodr_FINAL\FutureCodr\FutureCodr.Data\obj\Release\FutureCodr.Data.pdb

@@ -1,0 +1,13 @@
+﻿@model FutureCodr.UI.Models.Home.HomeSuccessViewModel
+
+@{
+    ViewBag.Title = "Success";
+}
+
+<div class="contact-div">
+    <h2>Thanks, @Model.Name!</h2>
+    <p>Your message has been received. We will get back to you at @Model.Email as quick as we can.</p>
+</div>
+
+@Html.ActionLink("Back to home", "Index", "Home", null, new { @class = "btn slim-btn", style = "color: whitesmoke" })
+

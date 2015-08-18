@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "BootcampTechnology";
+}
+
+<div class="admin-page" ng-app="bootcampLocations" ng-controller="BootcampLocationsCtrl">
+    <div class="admin-div">
+        <div class="admin-header-div">
+            <h2 class="admin-header">Bootcamp/Location</h2>
+            <button class="btn slim-btn admin-header-btn" ng-click="showAddBootcampLocation()">Add Bootcamp Location</button>
+        </div>
+
+        <table class="table admin-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Bootcamp</th>
+                    <th>Location</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in bootcampLocations | orderBy: item.Bootcamp">
+                    <td>{{ item.Id }}</td>
+                    <td>{{ item.Bootcamp }}</td>
+                    <td>{{ item.Location }}</td>
+                    <td><i class="glyphicon glyphicon-trash" ng-click="showConfirmDelete(item.Id)"></i></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="admin-div" ng-show="addBootcampLocation">
+        <form name="form" class="angular-form" novalidate>
+
+            <div class="admin-header-div">
+                <span class="admin-header">Add a location to a bootcamp</span>
+            </div>
+
+            <div class="form-group">
+                <span class="form-label-ang">Bootcamp</span>
+                <select ng-model="bootcampId" class="default-dropdown ang-control" ng-options="item.BootcampID as item.Name for item in bootcamps" required></select>
+            </div>
+
+            <div class="form-group">
+                <span class="form-label-ang">Location</></span>
+                <select ng-model="locationId" class="default-dropdown ang-control" ng-options="item.LocationId as item.Name for item in locations" required></select>
+            </div>
+
+            <button class="btn slim-btn cancel-btn" ng-click="hide()">Cancel</button>
+            <button class="btn slim-btn" ng-click="add()" ng-disabled="form.$invalid">Add</button>
+
+        </form>
+    </div>
+
+    <div class="admin-div" ng-show="confirmDelete">
+        <p>Are you sure you want to delete #{{ id }}?</p>
+        <button class="btn slim-btn cancel-btn" ng-click="hide()">Cancel</button>
+        <button class="btn slim-btn" ng-click="delete(id)">Delete</button>
+    </div>
+</div>
+
+@section AdminMenu
+{
+    @Html.Partial("_AdminFloater")
+}
+
+@section scripts {
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/angular/bootcampLocations/bootcampLocationsModule.js"></script>
+    <script src="~/Scripts/angular/bootcampLocations/bootcampLocationsFactory.js"></script>
+    <script src="~/Scripts/angular/bootcampLocations/BootcampLocationsCtrl.js"></script>
+}

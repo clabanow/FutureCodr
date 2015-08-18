@@ -1,0 +1,77 @@
+﻿@{
+    ViewBag.Title = "Sites";
+}
+
+<div class="admin-page" ng-app="sites" ng-controller="SitesCtrl">
+    <div class="admin-div">
+        <div class="admin-header-div">
+            <span class="admin-header">Sites</span>
+            <button class="btn slim-btn admin-header-btn" ng-click="showAddSite()">Add Site</button>
+        </div>
+
+        <table class="table admin-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Logo Link</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="site in sites">
+                    <td>{{ site.SiteName }}</td>
+                    <td>{{ site.SiteLogoUrl }}</td>
+                    <td><i class="glyphicon glyphicon-trash" ng-click="showConfirmDelete(site.SiteId, site.SiteName)"></i></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <div class="admin-div" ng-show="addSite">
+        <form class="angular-form" name="form" novalidate>
+            <div class="admin-header-div">
+                <span class="admin-header">Add Site</span>
+            </div>
+
+            <div class="form-group">
+                <span class="form-label-ang">Name</span>
+                <input class="form-input-ang" name="Name" ng-model="site.SiteName" required />
+                <span ng-show="form.Name.$dirty && form.Name.$invalid">
+                    <span ng-show="form.Name.$error.required" class="ng-error-msg">Enter the site name</span>
+                </span>
+            </div>
+            
+            <div class="form-group">
+                <span class="form-label-ang">Site Logo Filename</span>
+                <input class="form-input-ang" name="Logo" ng-model="site.SiteLogoURL" required />
+                <span ng-show="form.Logo.$dirty && form.Logo.$invalid">
+                    <span ng-show="form.Logo.$error.required" class="ng-error-msg">Enter the logo's filename</span>
+                </span>
+            </div>
+
+            <button class="btn slim-btn cancel-btn" ng-click="hide()">Cancel</button>
+            <button class="btn slim-btn" ng-click="add()" ng-disabled="form.$invalid">Submit</button>
+        </form>
+    </div>
+    
+    <div class="admin-div" ng-show="confirmDelete">
+        <p>Are you sure you want to delete {{ name }}?</p>
+        <button class="btn slim-btn cancel-btn" ng-click="hide()">Cancel</button>
+        <button class="btn slim-btn" ng-click="delete(id)">Delete</button>
+    </div>
+</div>
+
+@section AdminMenu
+{
+    @Html.Partial("_AdminFloater")
+}
+
+@section scripts{
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/angular-route.min.js"></script>
+    <script src="~/Scripts/angular/sites/sitesModule.js"></script>
+    <script src="~/Scripts/angular/sites/sitesFactory.js"></script>
+    <script src="~/Scripts/angular/sites/SitesCtrl.js"></script>
+}

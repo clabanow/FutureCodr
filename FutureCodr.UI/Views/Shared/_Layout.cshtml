@@ -1,0 +1,105 @@
+﻿@using FutureCodr.UI.Models.Home
+@{
+    var currentController = ViewContext.RouteData.Values["controller"] as string ?? "Home";
+    var currentAction = ViewContext.RouteData.Values["action"] as string ?? "Index";
+    var currentPage = (currentController + "-" + currentAction).ToLower();
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content=@ViewBag.metaDescription/>
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="shortcut icon" href="http://faviconist.com/icons/92c13de144122e4ac2c0fadc1217e8f2/favicon.ico" />
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+</head>
+<body>
+    <div id="wrap">
+        <div class="navbar navbar-inverse">
+            <div class="navbar-container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="/"><img id="future-codr-logo" src="/Content/logos/future-codr-logo.png" class="navbar-brand" /></a>
+                </div>
+                <div id="navbar-nav-text">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home", null, new { @class = currentPage == "home-index" ? "current-page" : "nav-link" })</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home", null, new { @class = currentPage == "home-contact" ? "current-page" : "nav-link" })</li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            if (User.IsInRole("admin"))
+                            {
+                                <li>@Html.ActionLink("Admin", "Index", "Admin", null, new { @class = currentController == "Admin" ? "current-page" : "nav-link" })</li>
+                            }
+                            <li>@Html.ActionLink("Logout", "LogOff", "Account")</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="main">
+            <div class="body-content">
+                @RenderSection("AdminMenu", required: false)
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-title">Future Codr</div>
+                <div class="footer-bottom-box">
+                    <ul>
+                        <li>@Html.ActionLink("Home", "Index", "Home", null, new { @class = currentPage == "home-index" ? "footer-link current-page-footer" : "footer-link" })</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home", null, new { @class = currentPage == "home-contact" ? "footer-link current-page-footer" : "footer-link" })</li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            if (User.IsInRole("admin"))
+                            {
+                                <li>@Html.ActionLink("Admin", "Index", "Admin", null, new { @class = currentController == "Admin" ? "footer-link current-page-footer" : "footer-link" })</li>
+                            }
+                            <li>@Html.ActionLink("Logout", "LogOff", "Account", null, new{ @class="footer-link"})</li>
+                        }
+                        else
+                        {
+                            <li>@Html.ActionLink("Login", "Login", "Account", null, new { @class = currentPage == "account-login" ? "footer-link current-page-footer" : "footer-link" })</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-content">
+                <div class="footer-title">About</div>
+                <div class="footer-bottom-box">
+                    <span id="footer-about">
+                        Deciding which bootcamp to attend is a difficult decision. We're here to get you all the information you need to choose the right one. After all, this 
+                        website was actually itself a final project for a bootcamp.
+                    </span>
+                </div>
+            </div>
+            <div class="footer-content">
+                <div class="footer-title">Social</div>
+                <div class="footer-bottom-box">
+                    <img src="/Content/icons/twitter-64-black.png" alt="twitter icon" class="social-icon" id="twitter-icon">
+                    <img src="/Content/icons/facebook-64-black.png" alt="facebook icon" class="social-icon" id="facebook-icon">
+                    <img src="/Content/icons/linkedin-64-black.png" alt="linkedin icon" class="social-icon" id="linkedin-icon">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,131 @@
+﻿@model FutureCodr.UI.Models.Bootcamp.BootcampViewModel
+
+@{
+    ViewBag.Title = "FutureCodr | " + @Model.Name;
+}
+
+<div class="bootcamp-detail-container">
+    <a href="http://@Model.Url">
+        <div class="jumbotron-bootcamps">
+            <img src="/Content/logos/@Model.LogoLink" />
+            <div id="outer">
+                <span id="bootcamp-header-text">@Model.Name</span>
+                <div id="bootcamp-header-location">@Model.Location</div>
+            </div>
+        </div>
+    </a>
+
+    <div class="bootcamp-box-row">
+        <div id="tech-box" class="bootcamp-box bootcamps">
+            <div class="bootcamp-box-header"><i class="fa fa-desktop icon"></i> Technology</div>
+            @foreach (var technology in Model.Technologies)
+            {
+
+                <a href="/technology/@technology.GetUrl()">
+                    <span class="bootcamp-box-item">
+                        @technology.Name
+                    </span>
+                </a>
+            }
+        </div>
+
+        <div id="location-box" class="bootcamp-box">
+            <div class="bootcamp-box-header"><i class="fa fa-map-marker icon"></i>Locations</div>
+            @foreach (var location in Model.Locations)
+            {
+                <a href="/location/@location.GetUrl()">
+                    <span class="bootcamp-box-item">
+                        @location.Name
+                    </span>
+                </a>
+            }
+        </div>
+        <div id="price-box" class="bootcamp-box bootcamps">
+            <div class="bootcamp-box-header"><i class="fa fa-money icon"></i>Price</div>
+            <span class="price">@Model.Price</span>
+        </div>
+    </div>
+
+    <div class="sessions bootcamps">
+        <span class="bootcamp-section-header">Upcoming Sessions</span>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Technology</th>
+                    <th>Location</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var session in Model.Sessions)
+                {
+                    <tr>
+                        <td><i class="fa fa-calendar icon"></i>@session.StartDate.ToString("M")</td>
+                        <td><i class="fa fa-calendar icon"></i>@session.EndDate.ToString("M")</td>
+                        <td>
+                            @if (session.Technology == "iOS")
+                            {
+                                <i class="fa fa-mobile icon" style="width: 21px"></i>
+                            }
+                            else
+                            {
+                                <i class="fa fa-desktop icon"></i>
+                            }
+                            @session.Technology
+                        </td>
+                        <td><i class="fa fa-map-marker icon"></i>@session.Location</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="links bootcamps">
+        <span class="bootcamp-section-header">Links</span>
+        @foreach (var link in Model.Links)
+        {
+            <a href=@link.URL>
+                <div class="link-box">
+
+                    <img src="/Content/logos/@link.SiteLogoURL" />
+                    <div class="link-text-info">
+                        <div class="link-sitename">@link.SiteName</div>
+                        <div class="link-date">@link.Date.ToString("MMMM dd yyyy")</div>
+                        <div class="link-title">@link.Title</div>
+                    </div>
+
+                </div>
+            </a>
+        }
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        //$(document).ready(function () {
+        //    resize_to_fit();
+        //});
+
+        //function resize_to_fit() {
+        //    var fontsize = $('#bootcamp-header-text').css('font-size');
+        //    $('#bootcamp-header-text').css('fontSize', parseFloat(fontsize) - 1);
+
+        //    if ($('#bootcamp-header-text').height() >= $('div#outer').height()) {
+        //        resize_to_fit();
+        //    }
+        //}
+        $(function () {
+            n = 1;
+            while (n == 1) {
+                n = 0
+                if ($('#bootcamp-header-text').outerHeight() > $('div#outer').outerHeight()) {
+                    var fz = parseInt($('div#outer').css('font-size'));
+                    $('div#outer').css({ 'font-size': fz - 1 });
+                    n = 1
+                } else { n = 0 }
+            }
+        });
+    </script>
+    <script src="~/Scripts/colHeight.js"></script>
+}

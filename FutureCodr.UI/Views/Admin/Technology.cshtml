@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "Technology";
+}
+
+<div class="admin-page" ng-app="technology" ng-controller="TechnologyCtrl">
+    <div class="admin-div">
+        <div class="admin-header-div">
+            <span class="admin-header">Technology</span>
+            <button class="btn slim-btn admin-header-btn" ng-click="toggleAddTechnology()">Add Technology</button>
+        </div>
+
+        <table class="table admin-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="technology in technologies">
+                    <td>{{ technology.Name }}</td>
+                    <td><i class="glyphicon glyphicon-trash" ng-click="delete(technology.TechnologyID)"></i></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    
+    
+    <div class="admin-div" ng-show="showAddTechnology">
+        <form class="angular-form" name="form" novalidate>
+            <div class="admin-header-div">
+                <span class="admin-header">Add Technology</span>
+            </div>
+            <div class="form-group">
+                <span class="form-label-ang">Name</span>
+                <input class="form-input-ang" id="Name" name="Name" ng-model="technology.Name" required />
+                <span ng-show="form.Name.$dirty && form.Name.$invalid">
+                    <span ng-show="form.Name.$error.required" class="ng-error-msg">Enter the technology name</span>
+                </span>
+            </div>
+            <button class="btn slim-btn" ng-click="add()" ng-disabled="form.$invalid">Submit</button>
+        </form>
+    </div>
+</div>
+
+@section AdminMenu
+{
+    @Html.Partial("_AdminFloater")
+}
+
+@section scripts{
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/angular-route.min.js"></script>
+    <script src="~/Scripts/angular/technology/technologyModule.js"></script>
+    <script src="~/Scripts/angular/technology/technologyFactory.js"></script>
+    <script src="~/Scripts/angular/technology/TechnologyCtrl.js"></script>
+}

@@ -1,0 +1,17 @@
+C:\Users\Charles\Desktop\Github\Charles\Applications\FutureCodr_FINAL\FutureCodr\FutureCodr.Data\obj\Debug\FutureCodr.Data.csprojResolveAssemblyReference.cache
+C:\Users\Charles\Desktop\Github\Charles\Applications\FutureCodr_FINAL\FutureCodr\FutureCodr.Data\bin\Debug\FutureCodr.Data.dll
+C:\Users\Charles\Desktop\Github\Charles\Applications\FutureCodr_FINAL\FutureCodr\FutureCodr.Data\bin\Debug\FutureCodr.Data.pdb
+C:\Users\Charles\Desktop\Github\Charles\Applications\FutureCodr_FINAL\FutureCodr\FutureCodr.Data\bin\Debug\Dapper.dll
+C:\Users\Charles\Desktop\Github\Charles\Applications\FutureCodr_FINAL\FutureCodr\FutureCodr.Data\bin\Debug\FutureCodr.Models.dll
+C:\Users\Charles\Desktop\Github\Charles\Applications\FutureCodr_FINAL\FutureCodr\FutureCodr.Data\bin\Debug\FutureCodr.Models.pdb
+C:\Users\Charles\Desktop\Github\Charles\Applications\FutureCodr_FINAL\FutureCodr\FutureCodr.Data\bin\Debug\Dapper.pdb
+C:\Users\Charles\Desktop\Github\Charles\Applications\FutureCodr_FINAL\FutureCodr\FutureCodr.Data\bin\Debug\Dapper.xml
+C:\Users\Charles\Desktop\Github\Charles\Applications\FutureCodr_FINAL\FutureCodr\FutureCodr.Data\obj\Debug\FutureCodr.Data.dll
+C:\Users\Charles\Desktop\Github\Charles\Applications\FutureCodr_FINAL\FutureCodr\FutureCodr.Data\obj\Debug\FutureCodr.Data.pdb
+C:\Users\Charles\Desktop\Github\Charles\FutureCodr\FutureCodr.Data\bin\Debug\FutureCodr.Data.dll
+C:\Users\Charles\Desktop\Github\Charles\FutureCodr\FutureCodr.Data\bin\Debug\FutureCodr.Data.pdb
+C:\Users\Charles\Desktop\Github\Charles\FutureCodr\FutureCodr.Data\bin\Debug\FutureCodr.Models.dll
+C:\Users\Charles\Desktop\Github\Charles\FutureCodr\FutureCodr.Data\bin\Debug\FutureCodr.Models.pdb
+C:\Users\Charles\Desktop\Github\Charles\FutureCodr\FutureCodr.Data\obj\Debug\FutureCodr.Data.csprojResolveAssemblyReference.cache
+C:\Users\Charles\Desktop\Github\Charles\FutureCodr\FutureCodr.Data\obj\Debug\FutureCodr.Data.dll
+C:\Users\Charles\Desktop\Github\Charles\FutureCodr\FutureCodr.Data\obj\Debug\FutureCodr.Data.pdb

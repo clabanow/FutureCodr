@@ -1,0 +1,25 @@
+﻿
+@*@{
+    ViewBag.Title = "_AdminLayout";
+    var currentAction = ViewContext.RouteData.Values["action"] as string ?? "Index";
+    var currentPage = (currentAction).ToLower();
+}
+
+<div class="admin-floater">
+    @Html.ActionLink("Home", "Index", "Admin", null, new { @class = currentPage == "index" ? "btn slim-btn current-page admin-btn" : "btn slim-btn admin-btn", style = "color: whitesmoke" })
+    @Html.ActionLink("Bootcamps", "Bootcamps", "Admin", null, new { @class = currentPage == "bootcamps" ? "btn slim-btn current-page admin-btn" : "btn slim-btn admin-btn", style = "color: whitesmoke" })
+    @Html.ActionLink("Bootcamp Locations", "BootcampLocations", "Admin", null, new { @class = currentPage == "bootcamplocations" ? "btn slim-btn current-page admin-btn" : "btn slim-btn admin-btn", style = "color: whitesmoke" })
+    @Html.ActionLink("Bootcamp Sessions", "Sessions", "Admin", null, new { @class = currentPage == "sessions" ? "btn slim-btn current-page admin-btn" : "btn slim-btn admin-btn", style = "color: whitesmoke" })
+    @Html.ActionLink("Bootcamp Technologies", "BootcampTechnology", "Admin", null, new { @class = currentPage == "bootcamptechnology" ? "btn slim-btn current-page admin-btn" : "btn slim-btn admin-btn", style = "color: whitesmoke" })
+    @Html.ActionLink("Contact Forms", "ContactForms", "Admin", null, new { @class = currentPage == "contactforms" ? "btn slim-btn current-page admin-btn" : "btn slim-btn admin-btn", style = "color: whitesmoke" })
+    @Html.ActionLink("Links", "Links", "Admin", null, new { @class = currentPage == "links" ? "btn slim-btn current-page admin-btn" : "btn slim-btn admin-btn", style = "color: whitesmoke" })
+    @Html.ActionLink("Locations", "Locations", "Admin", null, new { @class = currentPage == "locations" ? "btn slim-btn current-page admin-btn" : "btn slim-btn admin-btn", style = "color: whitesmoke" })
+    @Html.ActionLink("Sites", "Sites", "Admin", null, new { @class = currentPage == "sites" ? "btn slim-btn current-page admin-btn" : "btn slim-btn admin-btn", style = "color: whitesmoke" })
+    @Html.ActionLink("Technology", "Technology", "Admin", null, new { @class = currentPage == "technology" ? "btn slim-btn current-page admin-btn" : "btn slim-btn admin-btn", style = "color: whitesmoke" })
+    @Html.ActionLink("Users", "Users", "Admin", null, new { @class = currentPage == "users" ? "btn slim-btn current-page admin-btn" : "btn slim-btn admin-btn", style = "color: whitesmoke" })
+</div>
+<div>
+    @RenderBody()
+    @RenderSection("scripts")
+</div>*@
+
